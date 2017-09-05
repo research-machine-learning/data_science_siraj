@@ -1,8 +1,6 @@
-from sklearn import tree, linear_model, naive_bayes
+from sklearn import tree
 
 decisionTreeClassifier = tree.DecisionTreeClassifier()
-sgdClassifier = linear_model.SGDClassifier(loss="hinge", penalty="l2")
-gaussianNB = naive_bayes.GaussianNB()
 
 # [height, weight, shoe_size]
 X = [[181, 80, 44], [177, 70, 43], [160, 60, 38],
@@ -16,18 +14,8 @@ Y = ['male', 'male', 'female',
      'male', 'male']
 
 decisionTreeClassifier = decisionTreeClassifier.fit(X, Y)
-sgdClassifier = sgdClassifier.fit(X, Y)
-gaussianNB = gaussianNB.fit(X, Y)
 
 decisionTreeClassifierPrediction = decisionTreeClassifier.predict([[190, 70, 43]])
-sgdClassifierPrediction = sgdClassifier.predict([[190, 70, 43]])
-gaussianNBPrediction = gaussianNB.predict([[190, 70, 43]])
 
-print('sgdClassifierPrediction: ')
-print(sgdClassifierPrediction)
-print('')
 print('decisionTreeClassifierPrediction: ')
 print(decisionTreeClassifierPrediction)
-print('')
-print('gaussianNBPrediction: ')
-print(gaussianNBPrediction)
